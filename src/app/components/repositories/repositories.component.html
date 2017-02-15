@@ -1,0 +1,31 @@
+<div class="well">
+  <form>
+    <div class="">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchStr" name="searchStr" (keyup.enter)="search()">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" (click)="search()">Go!</button>
+        </span>
+      </div>
+      <!-- /input-group -->
+    </div>
+  </form>
+</div>
+<div *ngIf="searchRes">
+  <h3 class="orange-text">Search Results</h3>
+  <div class="row is-flex">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let item of searchRes; let i = index;">
+
+
+      <div class="alert alert-info">
+        Name:  <a [href]="item.html_url">{{ item.full_name }}</a> <br>
+        Owner: <img [src]="item.owner.avatar_url" height="20" alt=""> <b>{{ item.owner.login }}</b> <br>
+        <br>
+        <a routerLink="/repository/{{item.id}}">View details &raquo</a>
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

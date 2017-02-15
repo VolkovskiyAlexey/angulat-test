@@ -1,0 +1,10 @@
+
+<div *ngIf="repositoryItem" class="alert alert-info">
+  Name:  <a [href]="repositoryItem.html_url">{{ repositoryItem.full_name }}</a> <br>
+  Owner: <img [src]="repositoryItem.owner.avatar_url" height="20" alt=""> <b>{{ repositoryItem.owner.login }}</b> <br>
+
+</div>
+
+<div *ngIf="!repositoryItem" class="alert alert-danger">
+  Not found
+</div>
